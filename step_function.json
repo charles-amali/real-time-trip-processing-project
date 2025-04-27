@@ -1,0 +1,25 @@
+{
+  "Comment": "Glue job trigger",
+  "StartAt": "Glue StartJobRun",
+  "States": {
+    "Glue StartJobRun": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "dynamo stream job"
+      },
+      "Next": "Alert"
+    },
+    "Alert": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::sns:publish",
+      "Parameters": {
+        "TopicArn": "arn:aws:sns:eu-west-1:842676015206:kinesis_glue",
+        "Message": {
+          "messagekey1": "success"
+        }
+      },
+      "End": true
+    }
+  }
+}
