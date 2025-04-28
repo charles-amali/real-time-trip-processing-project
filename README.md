@@ -4,7 +4,7 @@ A scalable, event-driven architecture for processing real-time trip data using A
 
 ## Architecture Overview
 
-![Architecture Diagram](assets/images/architecture.png)
+![Architecture Diagram](assets/images/architecture.jpg)
 
 The pipeline consists of:
 - **Data Ingestion**: Kinesis Data Streams for real-time event ingestion
